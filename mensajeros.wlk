@@ -48,7 +48,7 @@ object sistema {
 object jeanGray {
 	//modela a Jean Gray
 	const peso = 65
-	const puedeLlamar = True
+	const puedeLlamar = true
 
 	method peso() {
 		//retorna el peso de Jean Gray
@@ -84,7 +84,25 @@ object neo {
 
 object saraConnor {
 	//modela a Sara Connor
+	var pesoDeSara = 0
+	var vehiculoActual = moto 
+	const puedeLlamar = false
 
+	method pesoDeSara(_pesoDeSara) {
+		pesoDeSara = _pesoDeSara
+	}
+
+	method puedeLlamar() {
+		return puedeLlamar
+	}
+
+	method vehiculoActual(_vehiculoActual) {
+		vehiculoActual = _vehiculoActual
+	}
+
+	method peso() {
+		return pesoDeSara + vehiculoActual.peso()
+	}
 }
 
 object puenteDeBrooklyn {
@@ -97,6 +115,14 @@ object puenteDeBrooklyn {
 object laMatrix {
     //modela la ubicaciond e la matrix
 	method cumpleRestricionesDe(persona) {
-       return persona.puedeHacerUnaLlamada()
+       return persona.puedeLlamar()
 	}
+}
+
+object moto {
+
+}
+
+object camion {
+	
 }
