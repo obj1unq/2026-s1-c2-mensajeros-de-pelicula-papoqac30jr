@@ -1,0 +1,9 @@
+import mensajeros.*
+describe "pruebas del sistema de paquetes" {
+    test "el paquete que no esta pagado y es llevado por neo a la matrix" {
+        sistema.paquetePagado(false)
+        sistema.destino(laMatrix)
+        sistema.personaEncargadaDeLaEntrega(neo)
+        assert.equals(false , sistema.puedeEntregarElPaquete())
+    }
+}

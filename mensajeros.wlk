@@ -4,9 +4,9 @@ object sistema {
     var personaEncargadaDeLaEntrega = jeanGray
 	var destinoActual = puenteDeBrooklyn
 
-    method puedeEntregarElPaqueteEn(persona , paquete , destino) {
+    method puedeEntregarElPaquete() {
 		//indica si la persona puede entregar el paquete en el destino indicado
-		return self.elPaqueteEstaPago() and self.puedeEntregarEn(persona , destino)
+		return self.elPaqueteEstaPago() and self.puedeEntregarEn(personaEncargadaDeLaEntrega , destinoActual)
 	}
 
 	method puedeEntregarEn(persona , destino) {
