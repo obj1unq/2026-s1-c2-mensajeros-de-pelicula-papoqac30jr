@@ -89,18 +89,22 @@ object saraConnor {
 	const puedeLlamar = false
 
 	method pesoDeSara(_pesoDeSara) {
+		//cambia el peso de sara
 		pesoDeSara = _pesoDeSara
 	}
 
 	method puedeLlamar() {
+		//retorna si sara puede llamar , siempre sera falso
 		return puedeLlamar
 	}
 
 	method vehiculoActual(_vehiculoActual) {
+		//cambia el vehiculo de sara 
 		vehiculoActual = _vehiculoActual
 	}
 
 	method peso() {
+		//retorna el peso de sara sumando el suyo con el del vehiculo
 		return pesoDeSara + vehiculoActual.peso()
 	}
 }
@@ -120,19 +124,24 @@ object laMatrix {
 }
 
 object moto {
+	// modela la moto usada por Sara Connor
 	method peso() {
+		//retorna el peso de la moto
 		return 100
 	}
 }
 
 object camion {
+	// modela el camion usado por Sara Connor
 	var cantidadAcoples = 0
 
 	method cantidadAcoples(_cantidadAcoples) {
+		//cambia la cantidad de acoples que tiene el camion
 		cantidadAcoples = _cantidadAcoples
 	}
 
 	method peso() {
+		//retorna el peso total del camion
 		return 500 + 500 * cantidadAcoples
 	}
 }
