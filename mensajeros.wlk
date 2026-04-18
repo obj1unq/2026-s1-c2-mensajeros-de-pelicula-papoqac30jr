@@ -51,18 +51,35 @@ object jeanGray {
 	const puedeLlamar = True
 
 	method peso() {
+		//retorna el peso de Jean Gray
 		return peso
 	}
 
 	method puedeLlamar() {
+		//indica si Jean Gray puede llamar , siempre sera verdadero debido a sus poderes.
 		return puedeLlamar
 	}
-
 }
 
 object neo {
 	//modela a Neo
+	const peso = 0
+	var puedeLlamar = true
 
+	method peso() {
+		//retorna el peso del canchero de neo
+		return peso
+	}
+
+	method puedeLlamar() {
+		//indica si el canchero de neo puede llamar con su celular
+		return puedeLlamar
+	}
+
+	method puedeLlamar(_puedeLlamar) {
+		//cambia el valor del canchero de neo ideal cuando el canchero se queda sin creditos o cuando recargue creditos.
+		puedeLlamar = _puedeLlamar
+	}
 }
 
 object saraConnor {
