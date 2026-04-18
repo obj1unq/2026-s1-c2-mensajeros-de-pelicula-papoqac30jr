@@ -120,9 +120,19 @@ object laMatrix {
 }
 
 object moto {
-
+	method peso() {
+		return 100
+	}
 }
 
 object camion {
-	
+	var cantidadAcoples = 0
+
+	method cantidadAcoples(_cantidadAcoples) {
+		cantidadAcoples = _cantidadAcoples
+	}
+
+	method peso() {
+		return 500 + 500 * cantidadAcoples
+	}
 }
