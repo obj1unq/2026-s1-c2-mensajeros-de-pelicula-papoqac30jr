@@ -14,10 +14,6 @@ object sistema {
 	return destino.cumpleRestricionesDe(persona) 
 	}
 
-	method entregarElPaquete() {
-
-	}
-
 	method elPaqueteEstaPago() {
 		//indica si el paquete esta pago
       return paquetePagado
@@ -51,6 +47,16 @@ object sistema {
 
 object jeanGray {
 	//modela a Jean Gray
+	const peso = 65
+	const puedeLlamar = True
+
+	method peso() {
+		return peso
+	}
+
+	method puedeLlamar() {
+		return puedeLlamar
+	}
 
 }
 
