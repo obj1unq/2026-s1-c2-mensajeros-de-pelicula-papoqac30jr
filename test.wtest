@@ -21,4 +21,12 @@ describe "pruebas del sistema de paquetes" {
         camion.cantidadAcoples(1)
         assert.equals(false , sistema.puedeEntregarElPaquete())
     }
+    test "El test anterior pero con sara con una moto" {
+        sistema.paquetePagado(true)
+        sistema.destino(puenteDeBrooklyn)
+        sistema.personaEncargadaDeLaEntrega(saraConnor)
+        saraConnor.pesoDeSara(70)
+        saraConnor.vehiculoActual(moto)
+        assert.equals(true , sistema.puedeEntregarElPaquete())
+    }
 }
