@@ -12,4 +12,13 @@ describe "pruebas del sistema de paquetes" {
         sistema.personaEncargadaDeLaEntrega(jeanGray)
         assert.equals(true , sistema.puedeEntregarElPaquete())
     }
+    test "El paquete de George que sí está pago no puede ser llevado por Sara (que pesa 70kg) a Brooklyn si es que utiliza un camión con un acoplado ." {
+        sistema.paquetePagado(true)
+        sistema.destino(puenteDeBrooklyn)
+        sistema.personaEncargadaDeLaEntrega(saraConnor)
+        saraConnor.pesoDeSara(70)
+        saraConnor.vehiculoActual(camion)
+        camion.cantidadAcoples(1)
+        assert.equals(false , sistema.puedeEntregarElPaquete())
+    }
 }
