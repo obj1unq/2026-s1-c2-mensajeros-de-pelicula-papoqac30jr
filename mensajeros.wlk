@@ -6,9 +6,7 @@ object sistema {
 
     method puedeEntregarElPaqueteEn(persona , paquete , destino) {
 		//indica si la persona puede entregar el paquete en el destino indicado
-		if (self.elPaqueteEstaPago() and self.puedeEntregarEn(persona , destino)) {
-			self.entregarElPaquete(paquete)
-		}
+		return self.elPaqueteEstaPago() and self.puedeEntregarEn(persona , destino)
 	}
 
 	method puedeEntregarEn(persona , destino) {
@@ -31,31 +29,38 @@ object sistema {
 	}
 
 	method destino() {
+		//retorna el destino
 		return destinoActual
 	}
 
 	method destino(_destino) {
+		//cambia el destino
 		destinoActual = _destino
 	}
 
 	method personaEncargadaDeLaEntrega() {
+		//retorna la persona
 		return personaEncargadaDeLaEntrega
 	}
 
 	method personaEncargadaDeLaEntrega(_personaEncargadaDeLaEntrega) {
+		//cambia la persona
 		personaEncargadaDeLaEntrega = _personaEncargadaDeLaEntrega
 	}
 }
 
 object jeanGray {
+	//modela a Jean Gray
 
 }
 
 object neo {
+	//modela a Neo
 
 }
 
 object saraConnor {
+	//modela a Sara Connor
 
 }
 
