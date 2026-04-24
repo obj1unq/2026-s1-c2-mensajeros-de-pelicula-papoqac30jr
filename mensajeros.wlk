@@ -1,12 +1,10 @@
 object sistema {
 	//modela el sistema de paqueteria
 	var paquetePagado = true
-    var personaEncargadaDeLaEntrega = jeanGray
-	var destinoActual = puenteDeBrooklyn
 
-    method puedeEntregarElPaquete() {
+    method puedeEntregarElPaquete(persona , destino) {
 		//indica si la persona puede entregar el paquete en el destino indicado
-		return self.elPaqueteEstaPago() and self.puedeEntregarEn(personaEncargadaDeLaEntrega , destinoActual)
+		return self.elPaqueteEstaPago() and self.puedeEntregarEn(persona , destino)
 	}
 
 	method puedeEntregarEn(persona , destino) {
@@ -22,26 +20,6 @@ object sistema {
 	method paquetePagado(_paquetePagado) {
 		//modifica el estado del paquete 
 		paquetePagado = _paquetePagado
-	}
-
-	method destino() {
-		//retorna el destino
-		return destinoActual
-	}
-
-	method destino(_destino) {
-		//cambia el destino
-		destinoActual = _destino
-	}
-
-	method personaEncargadaDeLaEntrega() {
-		//retorna la persona
-		return personaEncargadaDeLaEntrega
-	}
-
-	method personaEncargadaDeLaEntrega(_personaEncargadaDeLaEntrega) {
-		//cambia la persona
-		personaEncargadaDeLaEntrega = _personaEncargadaDeLaEntrega
 	}
 }
 
