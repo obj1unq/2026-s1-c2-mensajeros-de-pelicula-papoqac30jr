@@ -1,3 +1,10 @@
+object sistema {
+	//modela el sistema de paqueteria
+	method elPaquetePuedeSerEntregadoEn(paquete , persona , destino) {
+		return paquete.ElPaqueteEstaPago() and paquete.puedeEntregarElPaquete(persona , destino)
+	}
+}
+
 object paquete {
 	//modela al paquete a ser entregado
 	var paquetePagado = true
@@ -88,9 +95,10 @@ object saraConnor {
 }
 
 object puenteDeBrooklyn {
+	const pesoQuePuedeSoportar = 1000
 	//modela la ubicacion del puente de brooklyn
 	method cumpleRestricionesDe(persona) {
-        return 1000 > persona.peso()
+        return pesoQuePuedeSoportar > persona.peso()
 	}
 }
 
@@ -102,16 +110,18 @@ object laMatrix {
 }
 
 object moto {
+	const peso = 100
 	// modela la moto usada por Sara Connor
 	method peso() {
 		//retorna el peso de la moto
-		return 100
+		return peso
 	}
 }
 
 object camion {
 	// modela el camion usado por Sara Connor
 	var cantidadAcoples = 0
+	const pesoDeCamion = 500
 
 	method cantidadAcoples(_cantidadAcoples) {
 		//cambia la cantidad de acoples que tiene el camion
@@ -120,6 +130,6 @@ object camion {
 
 	method peso() {
 		//retorna el peso total del camion
-		return 500 + 500 * cantidadAcoples
+		return pesoDeCamion + pesoDeCamion * cantidadAcoples
 	}
 }

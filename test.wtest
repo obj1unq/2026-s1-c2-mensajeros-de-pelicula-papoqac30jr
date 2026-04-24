@@ -2,23 +2,23 @@ import mensajeros.*
 describe "pruebas del sistema de paquetes" {
     test "el paquete que no esta pagado y es llevado por neo a la matrix" {
         paquete.paquetePagado(false)
-        assert.equals(false , paquete.puedeEntregarElPaquete(neo , laMatrix))
+        assert.equals(false , sistema.elPaquetePuedeSerEntregadoEn(paquete , neo , laMatrix))
     }
     test "El paquete de George que sí está pago puede ser llevado por Jean a la matrix" {
         paquete.paquetePagado(true)
-        assert.equals(true , paquete.puedeEntregarElPaquete(jeanGray , laMatrix))
+        assert.equals(true , sistema.elPaquetePuedeSerEntregadoEn(paquete , jeanGray , laMatrix))
     }
     test "El paquete de George que sí está pago no puede ser llevado por Sara (que pesa 70kg) a Brooklyn si es que utiliza un camión con un acoplado ." {
         paquete.paquetePagado(true)
         saraConnor.pesoDeSara(70)
         saraConnor.vehiculoActual(camion)
         camion.cantidadAcoples(1)
-        assert.equals(false , paquete.puedeEntregarElPaquete(saraConnor , puenteDeBrooklyn))
+        assert.equals(false , sistema.elPaquetePuedeSerEntregadoEn(paquete , saraConnor , puenteDeBrooklyn))
     }
     test "El test anterior pero con sara con una moto" {
         paquete.paquetePagado(true)
         saraConnor.pesoDeSara(70)
         saraConnor.vehiculoActual(moto)
-        assert.equals(true , paquete.puedeEntregarElPaquete(saraConnor , puenteDeBrooklyn))
+        assert.equals(true , sistema.elPaquetePuedeSerEntregadoEn(paquete , saraConnor , puenteDeBrooklyn))
     }
 }
