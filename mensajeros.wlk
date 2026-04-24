@@ -1,0 +1,135 @@
+object sistema {
+	//modela el sistema de paqueteria
+	method elPaquetePuedeSerEntregadoEn(paquete , persona , destino) {
+		return paquete.elPaqueteEstaPago() and paquete.puedeEntregarElPaquete(persona , destino)
+	}
+}
+
+object paquete {
+	//modela al paquete a ser entregado
+	var paquetePagado = true
+
+    method puedeEntregarElPaquete(persona , destino) {
+		//indica si la persona puede entregar el paquete en el destino indicado
+		return self.elPaqueteEstaPago() and self.puedeEntregarEn(persona , destino)
+	}
+
+	method puedeEntregarEn(persona , destino) {
+    //indica si la persona puede entregar en el destino
+	return destino.cumpleRestricionesDe(persona) 
+	}
+
+	method elPaqueteEstaPago() {
+		//indica si el paquete esta pago
+      return paquetePagado
+	}
+
+	method paquetePagado(_paquetePagado) {
+		//modifica el estado del paquete 
+		paquetePagado = _paquetePagado
+	}
+}
+
+object jeanGray {
+	//modela a Jean Gray
+	const peso = 65
+	const puedeLlamar = true
+
+	method peso() {
+		//retorna el peso de Jean Gray
+		return peso
+	}
+
+	method puedeLlamar() {
+		//indica si Jean Gray puede llamar , siempre sera verdadero debido a sus poderes.
+		return puedeLlamar
+	}
+}
+
+object neo {
+	//modela a Neo
+	const peso = 0
+	var puedeLlamar = true
+
+	method peso() {
+		//retorna el peso del canchero de neo
+		return peso
+	}
+
+	method puedeLlamar() {
+		//indica si el canchero de neo puede llamar con su celular
+		return puedeLlamar
+	}
+
+	method puedeLlamar(_puedeLlamar) {
+		//cambia el valor del canchero de neo ideal cuando el canchero se queda sin creditos o cuando recargue creditos.
+		puedeLlamar = _puedeLlamar
+	}
+}
+
+object saraConnor {
+	//modela a Sara Connor
+	var pesoDeSara = 0
+	var vehiculoActual = moto 
+	const puedeLlamar = false
+
+	method pesoDeSara(_pesoDeSara) {
+		//cambia el peso de sara
+		pesoDeSara = _pesoDeSara
+	}
+
+	method puedeLlamar() {
+		//retorna si sara puede llamar , siempre sera falso
+		return puedeLlamar
+	}
+
+	method vehiculoActual(_vehiculoActual) {
+		//cambia el vehiculo de sara 
+		vehiculoActual = _vehiculoActual
+	}
+
+	method peso() {
+		//retorna el peso de sara sumando el suyo con el del vehiculo
+		return pesoDeSara + vehiculoActual.peso()
+	}
+}
+
+object puenteDeBrooklyn {
+	const pesoQuePuedeSoportar = 1000
+	//modela la ubicacion del puente de brooklyn
+	method cumpleRestricionesDe(persona) {
+        return pesoQuePuedeSoportar > persona.peso()
+	}
+}
+
+object laMatrix {
+    //modela la ubicaciond e la matrix
+	method cumpleRestricionesDe(persona) {
+       return persona.puedeLlamar()
+	}
+}
+
+object moto {
+	const peso = 100
+	// modela la moto usada por Sara Connor
+	method peso() {
+		//retorna el peso de la moto
+		return peso
+	}
+}
+
+object camion {
+	// modela el camion usado por Sara Connor
+	var cantidadAcoples = 0
+	const pesoDeCamion = 500
+
+	method cantidadAcoples(_cantidadAcoples) {
+		//cambia la cantidad de acoples que tiene el camion
+		cantidadAcoples = _cantidadAcoples
+	}
+
+	method peso() {
+		//retorna el peso total del camion
+		return pesoDeCamion + pesoDeCamion * cantidadAcoples
+	}
+}
