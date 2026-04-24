@@ -1,5 +1,5 @@
-object sistema {
-	//modela el sistema de paqueteria
+object paquete {
+	//modela al paquete a ser entregado
 	var paquetePagado = true
 
     method puedeEntregarElPaquete(persona , destino) {

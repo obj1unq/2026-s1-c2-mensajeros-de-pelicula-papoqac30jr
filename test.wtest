@@ -1,32 +1,24 @@
 import mensajeros.*
 describe "pruebas del sistema de paquetes" {
     test "el paquete que no esta pagado y es llevado por neo a la matrix" {
-        sistema.paquetePagado(false)
-        sistema.destino(laMatrix)
-        sistema.personaEncargadaDeLaEntrega(neo)
-        assert.equals(false , sistema.puedeEntregarElPaquete())
+        paquete.paquetePagado(false)
+        assert.equals(false , paquete.puedeEntregarElPaquete(neo , laMatrix))
     }
     test "El paquete de George que sí está pago puede ser llevado por Jean a la matrix" {
-        sistema.paquetePagado(true)
-        sistema.destino(laMatrix)
-        sistema.personaEncargadaDeLaEntrega(jeanGray)
-        assert.equals(true , sistema.puedeEntregarElPaquete())
+        paquete.paquetePagado(true)
+        assert.equals(true , paquete.puedeEntregarElPaquete(jeanGray , laMatrix))
     }
     test "El paquete de George que sí está pago no puede ser llevado por Sara (que pesa 70kg) a Brooklyn si es que utiliza un camión con un acoplado ." {
-        sistema.paquetePagado(true)
-        sistema.destino(puenteDeBrooklyn)
-        sistema.personaEncargadaDeLaEntrega(saraConnor)
+        paquete.paquetePagado(true)
         saraConnor.pesoDeSara(70)
         saraConnor.vehiculoActual(camion)
         camion.cantidadAcoples(1)
-        assert.equals(false , sistema.puedeEntregarElPaquete())
+        assert.equals(false , paquete.puedeEntregarElPaquete(saraConnor , puenteDeBrooklyn))
     }
     test "El test anterior pero con sara con una moto" {
-        sistema.paquetePagado(true)
-        sistema.destino(puenteDeBrooklyn)
-        sistema.personaEncargadaDeLaEntrega(saraConnor)
+        paquete.paquetePagado(true)
         saraConnor.pesoDeSara(70)
         saraConnor.vehiculoActual(moto)
-        assert.equals(true , sistema.puedeEntregarElPaquete())
+        assert.equals(true , paquete.puedeEntregarElPaquete(saraConnor , puenteDeBrooklyn))
     }
 }
