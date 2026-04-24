@@ -1,7 +1,7 @@
 object sistema {
 	//modela el sistema de paqueteria
 	method elPaquetePuedeSerEntregadoEn(paquete , persona , destino) {
-		return paquete.ElPaqueteEstaPago() and paquete.puedeEntregarElPaquete(persona , destino)
+		return paquete.elPaqueteEstaPago() and paquete.puedeEntregarElPaquete(persona , destino)
 	}
 }
 
